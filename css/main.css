@@ -93,7 +93,6 @@ input {
 }
 
 .search-bar-suggestions li {
-  border-bottom: 1px solid #e1e1e1;
   cursor: default;
   letter-spacing: 0.03em;
   padding: 12px 7px 12px 10px;
