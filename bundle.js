@@ -10668,9 +10668,7 @@ var SearchBar = function (_Component) {
 
     (0, _reactAutobind2.default)(_this);
 
-    _this.onChange = (0, _lodash2.default)(function (searchTerm) {
-      return props.onChange(searchTerm);
-    }, props.onChange);
+    _this.handleDebouncedChange = (0, _lodash2.default)(_this.handleDebouncedChange, props.delay);
     return _this;
   }
 
@@ -10738,6 +10736,15 @@ var SearchBar = function (_Component) {
       }
     }
   }, {
+    key: 'handleDebouncedChange',
+    value: function handleDebouncedChange(searchTerm) {
+      this.setState({
+        searchTerm: searchTerm
+      });
+
+      this.props.onChange(searchTerm);
+    }
+  }, {
     key: 'handleChange',
     value: function handleChange(event) {
       var value = event.target.value;
@@ -10750,11 +10757,10 @@ var SearchBar = function (_Component) {
       }
 
       this.setState({
-        searchTerm: searchTerm,
         value: value
       });
 
-      this.onChange(searchTerm);
+      this.handleDebouncedChange(searchTerm);
     }
   }, {
     key: 'handleKeyDown',
