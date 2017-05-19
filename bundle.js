@@ -10655,6 +10655,10 @@ var SearchBar = function (_Component) {
       (0, _invariant2.default)(props[prop], prop + ' prop is required.');
     });
 
+    if (props.renderSearchButton) {
+      (0, _invariant2.default)(props.onSearch, 'onSearch prop is required when rendering search button');
+    }
+
     _this.state = {
       focusedSuggestion: -1,
       isFocused: false,
@@ -10808,10 +10812,7 @@ var SearchBar = function (_Component) {
     key: 'handleSearch',
     value: function handleSearch() {
       this.props.onClear();
-
-      if (this.props.onSearch) {
-        this.props.onSearch(this.state.value.trim());
-      }
+      this.props.onSearch(this.state.value.trim());
     }
   }, {
     key: 'renderClearButton',
@@ -11084,7 +11085,7 @@ var Suggestions = function (_Component) {
         var suggestionRect = suggestionNode.getBoundingClientRect();
 
         if (suggestionRect.bottom > listRect.bottom) {
-          listNode.scrollTop = suggestionNode.offsetTop + suggestionNode.clientHeight - listNode.offsetHeight;
+          listNode.scrollTop = suggestionNode.offsetTop + suggestionNode.clientHeight - listNode.clientHeight;
         } else if (suggestionRect.top < listRect.top) {
           listNode.scrollTop = suggestionNode.offsetTop;
         }
@@ -11177,7 +11178,7 @@ exports = module.exports = __webpack_require__(91)();
 
 
 // module
-exports.push([module.i, "body {\n  font: 100% sans-serif;\n  margin: 15px;\n}\n\ninput {\n  font-size: 18px;\n  outline: 0;\n}\n\n.demo__field___RghV- {\n  border: 1px solid #ddd;\n  display: flex;\n  position: relative;\n}\n\n.demo__field--focused___3wRRg {\n  border-color: #ccc;\n}\n\n.demo__input___18cR3 {\n  border: 0;\n  box-sizing: border-box;\n  margin: 0;\n  padding: 10px 0 10px 10px;\n  width: 100%;\n}\n\n.demo__clear-button___25R_n,\n.demo__submit-button___25E9Z {\n  background: transparent;\n  background-position: center center;\n  background-repeat: no-repeat;\n  border: 0;\n  cursor: pointer;\n  font-size: 0;\n  outline: 0;\n  padding: 0;\n  width: 25px;\n}\n\n.demo__clear-button___25R_n {\n  background-image: url(" + __webpack_require__(193) + ");\n  background-size: 30%;\n  right: 0;\n  width: 40px;\n}\n\n.demo__submit-button___25E9Z {\n  background-color: #e5e5e5;\n  background-image: url(" + __webpack_require__(194) + ");\n  background-size: 35%;\n  border: 1px solid #ddd;\n  padding: 0 20px;\n  opacity: .8;\n  width: 40px;\n}\n\n.demo__submit-button___25E9Z:hover {\n  opacity: 1;\n}\n\n.demo__suggestions___5CI-s {\n  border: 1px solid #ccc;\n  box-sizing: border-box;\n  list-style: none;\n  margin: 0;\n  max-height: 240px;\n  overflow: scroll;\n  padding: 0;\n  position: relative;\n  top: -1px;\n  user-select: none;\n}\n\n.demo__suggestion___3wXDu {\n  cursor: pointer;\n  height: 40px;\n  letter-spacing: 0.03em;\n  line-height: 40px;\n  padding: 0 7px 0 10px;\n}\n\n.demo__suggestion--focused___2Pz5j {\n  background: #f5f5f5;\n}\n\n.demo__suggestion___3wXDu:last-child {\n  border: none;\n}\n", ""]);
+exports.push([module.i, "body {\n  font: 100% sans-serif;\n  margin: 15px;\n}\n\ninput {\n  font-size: 18px;\n  outline: 0;\n}\n\n.demo__field___RghV- {\n  border: 1px solid #ddd;\n  display: flex;\n  position: relative;\n}\n\n.demo__field--focused___3wRRg {\n  border-color: #ccc;\n}\n\n.demo__input___18cR3 {\n  border: 0;\n  box-sizing: border-box;\n  margin: 0;\n  padding: 10px 0 10px 10px;\n  width: 100%;\n}\n\n.demo__clear-button___25R_n,\n.demo__submit-button___25E9Z {\n  background: transparent;\n  background-position: center center;\n  background-repeat: no-repeat;\n  border: 0;\n  cursor: pointer;\n  font-size: 0;\n  outline: 0;\n  padding: 0;\n  width: 25px;\n}\n\n.demo__clear-button___25R_n {\n  background-image: url(" + __webpack_require__(193) + ");\n  background-size: 30%;\n  right: 0;\n  width: 40px;\n}\n\n.demo__submit-button___25E9Z {\n  background-color: #e5e5e5;\n  background-image: url(" + __webpack_require__(194) + ");\n  background-size: 35%;\n  border: 1px solid #ddd;\n  padding: 0 20px;\n  opacity: .8;\n  width: 40px;\n}\n\n.demo__submit-button___25E9Z:hover {\n  opacity: 1;\n}\n\n.demo__suggestions___5CI-s {\n  border: 1px solid #ccc;\n  list-style: none;\n  margin: 0;\n  max-height: 240px;\n  overflow: auto;\n  padding: 0;\n  position: relative;\n  top: -1px;\n  user-select: none;\n}\n\n.demo__suggestion___3wXDu {\n  cursor: pointer;\n  height: 40px;\n  letter-spacing: 0.03em;\n  line-height: 40px;\n  padding: 0 7px 0 10px;\n}\n\n.demo__suggestion--focused___2Pz5j {\n  background: #f5f5f5;\n}\n\n.demo__suggestion___3wXDu:last-child {\n  border: none;\n}\n", ""]);
 
 // exports
 exports.locals = {
