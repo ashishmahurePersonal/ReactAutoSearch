@@ -10760,7 +10760,9 @@ var SearchBar = function (_Component) {
         value: value
       });
 
-      this.handleDebouncedChange(searchTerm);
+      if (searchTerm) {
+        this.handleDebouncedChange(searchTerm);
+      }
     }
   }, {
     key: 'handleKeyDown',
