@@ -28,10 +28,8 @@ module.exports = {
         ]
     },
     devServer: {
-        contentBase: __dirname + "/public/",
-        inline: true,
+        contentBase: publicPath,
         host: '0.0.0.0',
-        port: 8080,
         noInfo: true
     },
     devtool: 'source-map'
