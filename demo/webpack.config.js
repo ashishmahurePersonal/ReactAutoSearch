@@ -29,7 +29,6 @@ module.exports = {
     },
     devServer: {
         contentBase: publicPath,
-        host: '0.0.0.0',
         noInfo: true
     },
     devtool: 'source-map'
