@@ -2,3 +2,4 @@
   "plugins": ["lodash"],
   "presets": ["env", "react", "stage-2"]
 }
+
