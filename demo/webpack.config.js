@@ -29,7 +29,9 @@ module.exports = {
     },
     devServer: {
         contentBase: publicPath,
-        noInfo: true
+        noInfo: true,
+        compress: true,
+        disableHostCheck: true
     },
     devtool: 'source-map'
 };
